@@ -41,7 +41,6 @@ const initialState = [
 
 
 
-
 export const studentSlice = createSlice({
   name: 'student',
   initialState,

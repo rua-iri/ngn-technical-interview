@@ -14,28 +14,47 @@ export default function StudentCard({ studentData }) {
     }
 
     return (
-        <div className="my-3 flex justify-between content-end outline outline-1 outline-slate-700 rounded bg-white">
+        <div className="my-3 flex justify-between content-end outline outline-1 outline-slate-700 rounded">
 
             {!isFirst
-                ? <div className='bg-zinc-800 text-gray-100 hover:bg-zinc-600'>
-                    <button onClick={() => handleMoveStudent()}>
-                        <ArrowLeftIcon />
-                    </button>
-                </div>
+                ? <MoveArrow isFirst={isFirst} handleMoveStudent={handleMoveStudent} />
                 : ""}
 
-            <div className='mx-3'>
-                {id} - {name} - {mark}
+            <div className='mx-3 flex flex-col font-light'>
+                <div>
+                    <span className="text-indigo-950 font-semibold">
+                        id:
+                    </span> {id}
+                </div>
+                <div>
+                    <span className="text-indigo-950 font-semibold">
+                        name:
+                    </span> {name}
+                </div>
+                <div>
+                    <span className="text-indigo-950 font-semibold">
+                        mark:
+                    </span> {mark}
+                </div>
             </div>
 
             {isFirst
-                ? <div className='bg-zinc-800 text-gray-100 hover:bg-zinc-600'>
-                    <button onClick={() => handleMoveStudent()}>
-                        <ArrowRightIcon />
-                    </button>
-                </div>
+                ? <MoveArrow isFirst={isFirst} handleMoveStudent={handleMoveStudent} />
                 : ""}
 
         </div>
+    )
+}
+
+function MoveArrow({ isFirst, handleMoveStudent }) {
+    return (
+        <button
+            className='bg-zinc-800 text-gray-100 hover:bg-zinc-600 cursor-pointer flex items-center focus:ring-8 focus:ring-slate-50'
+            onClick={() => handleMoveStudent()}
+        >
+            {isFirst
+                ? <ArrowRightIcon />
+                : <ArrowLeftIcon />}
+        </button>
     )
 }

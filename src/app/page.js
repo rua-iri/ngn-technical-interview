@@ -7,9 +7,9 @@ export default function Home() {
 
   return (
     <main>
-      <div className="m-12">
+      <div className="mx-12 mt-6">
         <div className="text-center mb-10 border-b">
-          <h2 className="text-2xl">Students List</h2>
+          <h2 className="text-2xl font-light">Students List</h2>
         </div>
         
         <StudentsTable />
