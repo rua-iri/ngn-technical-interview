@@ -9,23 +9,8 @@ export default function StudentCard({ studentData }) {
     const { id, name, mark, isFirst } = studentData;
     const dispatch = useDispatch();
 
-
-
     const handleMoveStudent = () => {
-        console.log(studentData)
-
-        alert("Handle Move Functionality")
-
-        // TODO handle moving student to another column
-
-        dispatch(moveStudents(studentData))
-
-
-        if (isFirst) {
-
-        } else {
-
-        }
+        dispatch(moveStudents(id))
     }
 
     return (

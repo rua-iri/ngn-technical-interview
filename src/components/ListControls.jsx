@@ -1,11 +1,14 @@
 'use client';
 
+import { resetStudents } from "@/lib/features/students/studentSlice";
+import { useDispatch } from "react-redux";
+
 export default function ListControls() {
 
-    const handleReset = () => {
-        alert("Handle Reset Functionality")
+    const dispatch = useDispatch();
 
-        // TODO: use reset reducer here
+    const handleReset = () => {
+        dispatch(resetStudents())
     }
 
     return (
