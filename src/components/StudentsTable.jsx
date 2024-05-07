@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setStudents } from "@/lib/features/students/studentSlice";
 import ListControls from "./ListControls";
+import ColumnSwitch from "./ColumnSwitch";
 
 async function getStudentsData(dispatch) {
     const baseAPIURL = "https://flat-leaf-ba02.rory-mcguigan.workers.dev/";
@@ -42,6 +43,9 @@ export default function StudentsTable() {
                             )
                         }
                     })}
+                </div>
+                <div>
+                    <ColumnSwitch />
                 </div>
                 <div className="mx-3 outline outline-1 md:w-52 rounded p-3">
                     <h3 className="text-center font-semibold mb-6">Box 2</h3>
