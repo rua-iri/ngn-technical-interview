@@ -1,10 +1,10 @@
 
-import ListControls from "@/components/ListControls";
+
 import StudentsTable from "@/components/StudentsTable";
 
 
-export default function Home() {
-
+export default async function Home() {
+  
   return (
     <main>
       <div className="mx-12 mt-6">
@@ -14,7 +14,6 @@ export default function Home() {
         
         <StudentsTable />
 
-        <ListControls />
       </div>
     </main>
   );

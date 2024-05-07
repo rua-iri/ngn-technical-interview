@@ -4,12 +4,13 @@ import { resetStudents } from "@/lib/features/students/studentSlice";
 import { useDispatch } from "react-redux";
 import RestoreIcon from '@mui/icons-material/Restore';
 
-export default function ListControls() {
+export default function ListControls({ getStudentsData }) {
 
     const dispatch = useDispatch();
 
     const handleReset = () => {
-        dispatch(resetStudents())
+        dispatch(resetStudents());
+        getStudentsData(dispatch);
     }
 
     return (
