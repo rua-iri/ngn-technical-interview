@@ -12,7 +12,6 @@ export default function ColumnSwitch() {
 
 
     function handleSwitch(isMoveFirst) {
-        // console.log(`Currently Selected: ${currentlySelected}`)
 
         if (currentlySelected.length === 0) { return }
 

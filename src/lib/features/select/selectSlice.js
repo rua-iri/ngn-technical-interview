@@ -10,7 +10,6 @@ export const selectSlice = createSlice({
     reducers: {
         resetSelect: () => initialState,
         pushSelect: (state, action) => {
-            console.log(action.payload)
             if (!state.value.includes(action.payload)) {
                 state.value.push(action.payload)
             }

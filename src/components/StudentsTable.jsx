@@ -12,9 +12,8 @@ async function getStudentsData(dispatch) {
 
     for (let i = 0; i < apiEndpoints.length; i++) {
         fetch(baseAPIURL + apiEndpoints[i])
-            .then((response) => { console.log(response); return response.json()})
+            .then((response) => { return response.json()})
             .then((data) => {
-                // console.log(data)
                 dispatch(setStudents(data))
             })
     }

@@ -42,7 +42,6 @@ function SelectRadio({ id }) {
     const currentlySelected = useSelector((state) => state.select.value);
 
     function handleSelect() {
-        // console.log(`Selected id: ${id}`)
         if (currentlySelected.includes(id)) {
             dispatch(removeSelect(id))
         } else {
