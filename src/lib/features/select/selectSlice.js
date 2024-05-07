@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    value: null
+    value: []
 };
 
 export const selectSlice = createSlice({
@@ -9,13 +9,19 @@ export const selectSlice = createSlice({
     initialState,
     reducers: {
         resetSelect: () => initialState,
-        setSelect: (state, action) => {
-            // console.log(`payload: ${action.payload}`)
-            state.value = action.payload
-          },
+        pushSelect: (state, action) => {
+            console.log(action.payload)
+            if (!state.value.includes(action.payload)) {
+                state.value.push(action.payload)
+            }
+        },
+        removeSelect: (state, action) => {
+            // state.value.pop(action.payload)
+            state.value = state.value.filter( select => select!=action.payload)
+        },
     }
 })
 
-export const { setSelect, resetSelect} = selectSlice.actions;
+export const { resetSelect, pushSelect, removeSelect } = selectSlice.actions;
 
 export default selectSlice.reducer;

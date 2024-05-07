@@ -1,7 +1,7 @@
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import { useDispatch, useSelector } from 'react-redux';
-import { moveStudents } from '@/lib/features/students/studentSlice';
+import { moveStudent } from '@/lib/features/students/studentSlice';
 import { resetSelect } from '@/lib/features/select/selectSlice';
 
 export default function ColumnSwitch() {
@@ -14,17 +14,21 @@ export default function ColumnSwitch() {
     function handleSwitch(isMoveFirst) {
         // console.log(`Currently Selected: ${currentlySelected}`)
 
-        if (currentlySelected === null) { return }
+        if (currentlySelected.length === 0) { return }
 
-        // return from function if moving to same column
-        for (let i = 0; i < studentsArray.length; i++) {
-            if (studentsArray[i].id == currentlySelected && studentsArray[i].isFirst == + isMoveFirst) {
-                dispatch(resetSelect())
-                return
+        selectedLoop: for (let i = 0; i < currentlySelected.length; i++) {
+            // return from function if moving to same column
+            for (let j = 0; j < studentsArray.length; j++) {
+                if (studentsArray[j].id == currentlySelected[i] && studentsArray[j].isFirst == + isMoveFirst) {
+                    dispatch(resetSelect())
+                    continue selectedLoop
+                }
             }
+            dispatch(moveStudent(currentlySelected[i]))
+
         }
 
-        dispatch(moveStudents(currentlySelected))
+        // reset all selections after function has completed
         dispatch(resetSelect())
     }
 

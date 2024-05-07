@@ -8,7 +8,7 @@ export const studentSlice = createSlice({
   initialState,
   reducers: {
     resetStudents: () => initialState,
-    moveStudents: (state, action) => {
+    moveStudent: (state, action) => {
       for (let i = 0; i < state.length; i++) {
         if (state[i].id == action.payload) {
           state[i].isFirst = !state[i].isFirst
@@ -30,6 +30,6 @@ export const studentSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { resetStudents, moveStudents, setStudents } = studentSlice.actions
+export const { resetStudents, moveStudent, setStudents } = studentSlice.actions
 
 export default studentSlice.reducer
