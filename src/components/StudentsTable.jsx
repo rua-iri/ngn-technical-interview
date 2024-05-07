@@ -7,12 +7,12 @@ import ListControls from "./ListControls";
 import ColumnSwitch from "./ColumnSwitch";
 
 async function getStudentsData(dispatch) {
-    const baseAPIURL = "https://flat-leaf-ba02.rory-mcguigan.workers.dev/";
+    const baseAPIURL = "/";
     const apiEndpoints = ["api/students1", "api/students2"];
 
     for (let i = 0; i < apiEndpoints.length; i++) {
         fetch(baseAPIURL + apiEndpoints[i])
-            .then((response) => response.json())
+            .then((response) => { console.log(response); return response.json()})
             .then((data) => {
                 // console.log(data)
                 dispatch(setStudents(data))
