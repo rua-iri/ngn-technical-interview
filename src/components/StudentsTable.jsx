@@ -14,7 +14,7 @@ async function getStudentsData(dispatch) {
         fetch(baseAPIURL + apiEndpoints[i])
             .then((response) => response.json())
             .then((data) => {
-                console.log(data)
+                // console.log(data)
                 dispatch(setStudents(data))
             })
     }
@@ -32,7 +32,7 @@ export default function StudentsTable() {
 
     return (
         <div>
-            <div className="columns-2 my-8 flex justify-center">
+            <div className="columns-3 my-8 flex justify-center">
                 <div className="mx-3 outline outline-1 md:w-52 rounded p-3">
                     <h3 className="text-center font-semibold mb-6">Box 1</h3>
 
@@ -44,9 +44,9 @@ export default function StudentsTable() {
                         }
                     })}
                 </div>
-                <div>
-                    <ColumnSwitch />
-                </div>
+
+                <ColumnSwitch />
+
                 <div className="mx-3 outline outline-1 md:w-52 rounded p-3">
                     <h3 className="text-center font-semibold mb-6">Box 2</h3>
 

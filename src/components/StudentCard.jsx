@@ -1,9 +1,7 @@
 "use client"
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import { useDispatch } from 'react-redux';
-import { moveStudents } from '@/lib/features/students/studentSlice';
 import { setSelect } from '@/lib/features/select/selectSlice';
+import { useSelector } from 'react-redux';
 
 export default function StudentCard({ studentData }) {
 
@@ -42,11 +40,13 @@ export default function StudentCard({ studentData }) {
 function SelectRadio({ id }) {
     
     const dispatch = useDispatch();
+    const currentlySelected = useSelector((state) => state.select.value);
 
     function handleSelect() {
         // console.log(`Selected id: ${id}`)
         dispatch(setSelect(id));
     }
+    
 
     return (
         <div className='flex items-center bg-zinc-800 px-2 text-gray-100 hover:bg-zinc-700'>
@@ -55,7 +55,7 @@ function SelectRadio({ id }) {
                 type="radio"
                 value={id}
                 name="asdf"
-                // className='hidden peer'
+                checked={id==currentlySelected}
                 className='h-5 w-5'
                 onChange={() => handleSelect()}
             />
